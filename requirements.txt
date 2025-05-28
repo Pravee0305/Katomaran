@@ -1,0 +1,73 @@
+# Stage 1: Build Tools and Core Dependencies
+setuptools>=69.0.3
+wheel>=0.42.0
+numpy>=1.26.4
+
+# Stage 2: ML Framework
+torch>=2.2.0 --index-url https://download.pytorch.org/whl/cu118
+torchvision>=0.17.0 --index-url https://download.pytorch.org/whl/cu118
+
+# Stage 3: Web Framework
+fastapi>=0.109.2
+uvicorn>=0.27.1
+websockets>=12.0
+python-multipart>=0.0.7
+python-dotenv>=1.0.1
+
+# Stage 4: Database
+sqlalchemy>=2.0.27
+psycopg2-binary>=2.9.9
+
+# Stage 5: Vector Store
+faiss-cpu>=1.7.4
+
+# Stage 6: RAG Engine Dependencies
+langchain>=0.1.0
+transformers>=4.37.2
+sentence-transformers>=2.3.1
+protobuf>=4.25.2
+pillow>=10.2.0
+
+# Stage 7: Computer Vision
+opencv-python-headless>=4.9.0.80
+
+# Python 3.12 compatibility
+typing-extensions>=4.9.0
+packaging>=23.2
+
+# Note: Face Recognition dependencies must be installed separately
+# Follow these steps in order:
+
+# 1. Install Visual Studio Build Tools 2022:
+#    - Download from: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+#    - Install "Desktop development with C++"
+#    - Make sure to select:
+#      * MSVC v143 - VS 2022 C++ x64/x86 build tools
+#      * Windows 10/11 SDK
+#      * C++ CMake tools for Windows
+
+# 2. Install CMake:
+#    pip install cmake>=3.28.1
+
+# 3. Install dlib:
+#    pip install dlib==19.24.1 --no-cache-dir --verbose
+
+# 4. Install face-recognition:
+#    pip install face-recognition==1.3.0
+
+# Installation Instructions:
+# 1. First install build tools and core:
+#    pip install -r requirements.txt
+#
+# 2. Then follow steps 1-4 above for face recognition setup
+#
+# 3. For GPU support (optional):
+#    pip uninstall faiss-cpu
+#    pip install faiss-gpu
+
+# Troubleshooting:
+# If dlib installation fails:
+# 1. Make sure Visual Studio Build Tools are properly installed
+# 2. Try: set CONDA_DLL_SEARCH_MODIFICATION_ENABLE=1
+# 3. Add Visual Studio Build Tools to PATH
+# 4. Restart your terminal/IDE after installing build tools 
